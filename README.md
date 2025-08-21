@@ -82,7 +82,7 @@ The varying levels of variance makes the Heston Model very reliable to predict t
 
 ## How does the Simulation work?
 
-The first step in this process is calculating the values for all the parameters that the Heston Model uses, you can find the calculations in the [Colab Notebook]().
+The first step in this process is calculating the values for all the parameters that the Heston Model uses, you can find the calculations in the [Colab Notebook](/Portfolio_Heston_Model.ipynb).
 
 After all the Parameters are calculated we calculate the varying levels of variances:
 
