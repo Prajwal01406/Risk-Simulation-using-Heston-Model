@@ -80,6 +80,19 @@ In the Above line graph you can clearly see the all the possible prices that the
 The above graph shows the movement of variance at all the given time period, the variances keep on changing at the rate $\kappa$ and reverts back to the mean reversion rate $\theta$.
 The varying levels of variance makes the Heston Model very reliable to predict the pathways.
 
+## Portfolio overview.
+The portfolio cantains four Indian Stocks listed in the BSE SENSEX index namely:
+- Reliance Industries Ltd ( RELIANCE.BO )
+- HDFC Bank Ltd ( HDFCBANK.BO )
+- TRENT (TRENT.BO)
+- HCL Technologies Ltd ( HCLTECH.BO)
+
+The past price movement of the following stocks looks like this:
+![Portfolio Stocks](/Graphs/Stocks.png)
+
+The data is extracted using the yfinance API, all the stocks are weighted equally (ie 0.25 each)
+I then Calculated the portfolio returns and the portfolio variance and moved ahead to the simulation part.
+
 ## How does the Simulation work?
 
 The first step in this process is calculating the values for all the parameters that the Heston Model uses, you can find the calculations in the [Colab Notebook](/Portfolio_Heston_Model.ipynb).
