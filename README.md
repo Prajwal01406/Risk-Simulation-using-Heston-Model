@@ -44,8 +44,8 @@ $\rho$ : Correlation between prices and variances.
 
 $\kappa$ : Mean reversion rate.
 
-Past 5 years data of the prices is used to calculate the values for the above variables, the data is exracted from the Yahoo Finance website using the yfinance library.
-Euler's Numerical Scheme is used to simulate prices step by step, this is done to ensure that the structure of the continuous time model is maintained.
+I used the past 5 years data of the prices to calculate the values for the above variables, the data is exracted from the Yahoo Finance website using the yfinance library.
+I used the Euler's Numerical Scheme to simulate prices step by step, this was done to ensure that the structure of the continuous time model is maintained.
 
 ## Monte Carlo Simulation.
 
