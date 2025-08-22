@@ -18,7 +18,7 @@ $$
 dv_t = \kappa \cdot ( \theta - v_t) \cdot dt + \xi \cdot \sqrt v_t \cdot dW^2_t
 $$
 
-here is the quation to calculate the change in price:
+here is the equation to calculate the change in price:
 
 $$
 dS_t = \mu \cdot S_t \cdot dt + \sqrt v_t \cdot S_t \cdot dW^1_t
@@ -32,17 +32,17 @@ $$
 
 ### Terms used:
 
-$\mu$ : Mean Returns.
+$\mu$ : Mean Returns of the portfolio calculated using the modern portfolio theory (ie., the portfolio return is the weighted average of the returns of all the securities).
 
-$v_t$ : Instantaneous Variance.
+$v_t$ : Instantaneous Variance, the variance at a particular time t.( I used the value of $\theta$ as the instantaneous variance for the first day)
 
-$\theta$ : Long run mean Variance.
+$\theta$ : Long run mean Variance, it is the value to which all the predicted variances revert.
 
-$\xi$ : Vol of Vol {Standard Deviation of Variances}.
+$\xi$ : Vol of Vol (Standard Deviation of Variances)
 
-$\rho$ : Correlation between prices and variances.
+$\rho$ : Correlation between prices and variances.(It is generally negative).
 
-$\kappa$ : Mean reversion rate.
+$\kappa$ : Mean reversion rate, it is the rate at which the variances reverts back to the long run mean variance (ie., $\theta$).
 
 I used the past 5 years data of the prices to calculate the values for the above variables, the data is exracted from the Yahoo Finance website using the yfinance library.
 I used the Euler's Numerical Scheme to simulate prices step by step, this was done to ensure that the structure of the continuous time model is maintained.
@@ -142,7 +142,16 @@ During the process, I faced various problems like:
 
 - Prices always moving upwards
 
-To solve them, I used techniques like truncation (clipping negative variances), proper initialization with realistic parameters, and careful calibration to past data. I also adjusted the simulation steps to make sure volatility behaved correctly. These fixes helped the model work smoothly and give realistic results.
+To solve them, I used techniques like **truncation** (clipping negative variances), proper initialization with realistic parameters, and careful calibration to past data. I also adjusted the simulation steps to make sure volatility behaved correctly. These fixes helped the model work smoothly and give realistic results.
+
+## How can you use this model?
+If you want to simulate the risk of your own portfolio just download the copy of the colab notebook and tweak the following code blocks:
+
+- Block no - 2 ( Start date and the end date ): it takes the start date and the end date of the prices which you want to extract, change it according to your liking.
+
+- Block no - 3 ( Ticker symbols and weights ): Provide the ticker symbols of the stocks and the weightage of the same in the corresponding position of the weights array. Make sure you do it right so that you don't run into errors or get some different answers. If you only want to simulate the prices of a single security then provide it's ticker symbol and give it a weightage of **1***. Don't forget to add **.NS** (for NSE ) and **.BO** ( for BSE ).
+
+- Block no - 14 ( The portfolio value ): Change the value of the **S0** variable to whatever your portfolio is values at the time or any other amount which you prefer.
 
 ## Conclusion
 
