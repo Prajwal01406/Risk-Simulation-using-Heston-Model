@@ -53,9 +53,9 @@ Monte Carlo simulation estimates all the possible outcomes of a process by runni
 
 Simulating the prices using Monte Carlo helps us understand:
 
-- variaty of different pathways that the prices can move in. Running the simulation 10000 times will cover almost all the possible paths that the prices can move in an year.
+- variety of different pathways that the prices can move in. Running the simulation 10000 times will cover almost all the possible paths that the prices can move in an year.
 
-- Calculate the risk measures like VaR and CVar and probable loss.
+- Calculate the risk measures like VaR, CVar and probable loss.
 
 ## Output from the Simulations
 
@@ -63,7 +63,7 @@ Simulating the prices using Monte Carlo helps us understand:
 
 ![Price Movement](/Graphs/Price%20Movement.png)
 
-In the Above line graph you can clearly see the all the possible prices that the model predicted/ calculated. We can calculate the risk measures using the histogram.
+In the above line graph you can clearly see all the possible prices that the model predicted/ calculated. The risk measures can be calculated using the histogram.
 
 - The mean price of all the 10,000 final prices is **39,010.49**
 
@@ -77,7 +77,7 @@ In the Above line graph you can clearly see the all the possible prices that the
 
 ![Variance Movement](/Graphs/Variance%20Movement.png)
 
-The above graph shows the movement of variance at all the given time period, the variances keep on changing at the rate $\kappa$ and reverts back to the mean reversion rate $\theta$.
+The above graph shows the movement of variance at all the given time period, the variances keep on changing at the rate $\kappa$ and revert back to the long run mean variance $\theta$.
 The varying levels of variance makes the Heston Model very reliable to predict the pathways.
 
 ## Portfolio overview.
@@ -91,7 +91,7 @@ The past price movement of the following stocks looks like this:
 ![Portfolio Stocks](/Graphs/Stocks.png)
 
 The data is extracted using the yfinance API, all the stocks are weighted equally (ie 0.25 each)
-I then Calculated the portfolio returns and the portfolio variance and moved ahead to the simulation part.
+I then calculated the portfolio returns and the portfolio variance and moved ahead to the simulation part.
 
 ## How does the Simulation work?
 
@@ -130,7 +130,7 @@ for t in range( 1 , days + 1):
 final_prices = price_paths[:, -1 ]
 ```
 
-The Dataframe final_prices stores all the possible final prices after a year, we then visualizes this data.
+The Dataframe final_prices stores all the possible final prices after a year.
 
 ## Problems and their solutions.
 
@@ -149,10 +149,10 @@ If you want to simulate the risk of your own portfolio just download the copy of
 
 - Block no - 2 ( Start date and the end date ): it takes the start date and the end date of the prices which you want to extract, change it according to your liking.
 
-- Block no - 3 ( Ticker symbols and weights ): Provide the ticker symbols of the stocks and the weightage of the same in the corresponding position of the weights array. Make sure you do it right so that you don't run into errors or get some different answers. If you only want to simulate the prices of a single security then provide it's ticker symbol and give it a weightage of **1***. Don't forget to add **.NS** (for NSE ) and **.BO** ( for BSE ).
+- Block no - 3 ( Ticker symbols and weights ): Provide the ticker symbols of the stocks and the weightage of the same in the corresponding position of the weights array. Make sure you do it right so that you don't run into errors or get some different answers. If you only want to simulate the prices of a single security then provide it's ticker symbol and give it a weightage of **1**. Don't forget to add **.NS** (for NSE ) and **.BO** ( for BSE ).
 
-- Block no - 14 ( The portfolio value ): Change the value of the **S0** variable to whatever your portfolio is values at the time or any other amount which you prefer.
+- Block no - 14 ( The portfolio value ): Change the value of the **S0** variable to whatever your portfolio is valued at the time or any other amount which you prefer.
 
 ## Conclusion
 
-In this project, we used the Heston Model to study how our portfolio might behave in the future. Unlike basic models, Heston model allows volatility to change over time and move back toward an average level, which makes it closer to real markets. By running Monte Carlo simulations and carefully setting the parameters, we could handle issues like negative variances and get more realistic results. This makes the Heston Model a reliable choice for risk analysis and portfolio forecasting.
+In this project, I used the Heston Model to study how a portfolio might behave in the future. Unlike basic models, Heston model allows volatility to change over time and move back toward an average level, which makes it closer to real markets. By running Monte Carlo simulations and carefully setting the parameters, issues like negative variances can be handled and get more realistic results. This makes the Heston Model a reliable choice for risk analysis and portfolio forecasting.
